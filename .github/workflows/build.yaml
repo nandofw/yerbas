@@ -197,7 +197,7 @@ jobs:
         run: |
           make -j$(nproc)
           mkdir -p $BUILD_DIR
-          mv src/{yerbas-cli.exe,yerbas-tx.exe,yerbasd.exe,qt/yerbas-qt.exe} $BUILD_DIR/
+          mv src/{yerbas-cli.exe,yerbasd.exe,qt/yerbas-qt.exe} $BUILD_DIR/
           strip $BUILD_DIR/*
       - name: generate checksum and compress
         run: |
