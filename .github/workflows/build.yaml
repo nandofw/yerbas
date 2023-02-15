@@ -16,8 +16,8 @@ env:
   COMPRESS_DIR: yerbas-compress
   TEST_LOG_ARTIFACT_DIR: test-logs
 jobs:
-  get-version:
-    name: checking-build-version
+  checking-build-version:
+    name: Get Version
     runs-on: ubuntu-latest
     steps:
       - name: Triggered By
