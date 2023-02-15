@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-      - v2.1.1.4
-      - dev
+      - v2.1.1*
+      - de-patch-01
   pull_request:
     branches:
       - dev
@@ -23,18 +23,18 @@ jobs:
         run: |
           echo "checking out $GITHUB_REF trigger by $GITHUB_EVENT_NAME"
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Read build.properties key for master
         if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main'}}
         id: release-version
-        uses: christian-draeger/read-properties@1.0.1
+        uses: christian-draeger/read-properties@1.1.1
         with:
           path: build.properties
           property: 'release-version'
       - name: Read build.properties key for develop
         if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/dev'}}
         id: snapshot-version
-        uses: christian-draeger/read-properties@1.0.1
+        uses: christian-draeger/read-properties@1.1.1
         with:
           path: build.properties
           property: 'snapshot-version'
@@ -58,9 +58,9 @@ jobs:
     runs-on: macos-11
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Getting Version
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: version
       - name: Extract version
@@ -123,9 +123,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Getting Version
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: version
       - name: Extract version
@@ -181,9 +181,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Getting Version
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: version
       - name: Extract version
@@ -238,9 +238,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Getting Version
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: version
       - name: Extract version
@@ -298,9 +298,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Getting Version
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: version
       - name: Extract version
@@ -356,9 +356,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Getting Version
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: version
       - name: Extract version
