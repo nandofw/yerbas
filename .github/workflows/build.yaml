@@ -17,7 +17,7 @@ env:
   TEST_LOG_ARTIFACT_DIR: test-logs
 jobs:
   get-version:
-    name: Get Version
+    name: checking-build-version
     runs-on: ubuntu-latest
     steps:
       - name: Triggered By
