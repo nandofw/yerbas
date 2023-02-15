@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - v2.1.1*
-      - de-patch-01
+      - de-patch-*
   pull_request:
     branches:
       - dev
